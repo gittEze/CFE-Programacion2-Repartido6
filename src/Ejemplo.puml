@@ -1,0 +1,54 @@
+@startuml
+
+' Clase Vehiculo
+class Vehiculo {
+
+- modelo : String
+- marca : String
+- anio : int
+
++ acelerar() : void
++ cargaNafta(int litrosNafta) : int
+
+}
+
+class Moto extends Vehiculo
+class Auto extends Vehiculo {
+- capacidad : int
+- puertas : int
+}
+class Camion extends Vehiculo
+
+' + es publico
+' - es privado
+
+' La funcion te retorna un valor,
+' el procedimeinto no.
+
+' Clase Duenio
+class Duenio {
+
+- ci : int
+- nombre : String
+
++ conducir() : void
+
+}
+
+' Clase Seguro
+class Seguro {
+
+}
+
+Duenio "1" -- "*" Vehiculo : tiene
+' * es N en base de datos
+Vehiculo "1" -- "1" Seguro : tiene
+
+
+
+
+
+
+
+
+@enduml

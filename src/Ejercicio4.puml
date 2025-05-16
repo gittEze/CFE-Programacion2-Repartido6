@@ -1,0 +1,46 @@
+@startuml
+
+class Usuario {
+
+- ci : String
+- nombre : String
+- direccion : String
+
++ publicar() : void
++ cometarPublicacion() : void
++ unirseAUnGrupo () : void
++ eliminarPublicacion () : void
++ seguirUsuario () : void
+}
+
+class Estudiantes extends Usuario
+class Docente extends Usuario
+class Egresados extends Usuario
+
+class Publicacion {
+
+- fechaPublicacion : date
+- usuario : String
+
+}
+
+class Comentario {
+
+- contenido : String
+
+}
+
+class Grupo {
+
+- nombre : String
+
+}
+
+Usuario "1" -- "*" Publicacion : realiza
+Usuario "1" -- "*" Comentario : escribe
+Usuario "*" -- "*" Grupo : pertenece
+Publicacion "1" -- "*" Comentario : tiene
+Publicacion "*" -- "*" Grupo : comparten
+
+
+@enduml

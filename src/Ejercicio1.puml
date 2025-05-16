@@ -1,0 +1,27 @@
+@startuml
+
+class Contacto {
+
+- nombre : String
+- telefono : int
+- correoElectronico : string
+
++ agregarEtiqueta() : void
++ eliminarEtiqueta() : void
++ buscarEtiqueta() : void
+}
+
+class Etiqueta {
+
+- nombre : String
+
+}
+
+Contacto "*" -- "*" Etiqueta : tiene
+
+
+
+
+
+
+@enduml

@@ -1,0 +1,57 @@
+@startuml
+
+class Paciente {
+
+- ci : int
+- nombre : String
+- direccion : String
+
+}
+
+class Medico {
+
+- ci : int
+- nombre : String
+- direccion : String
+
+}
+
+class Cirujano extends Medico {
+
+- especialidad : String
+
+}
+
+class Clinico extends Medico {
+
+- especialidad : String
+
+}
+
+class Area {
+
+- nombre : String
+
+}
+
+class Turno {
+
+- fecha : date
+- hora : int
+
+}
+
+class Historial {
+
+- detalleConsulta : String
+
+}
+
+Paciente "1" -- "1" Historial : tiene
+Paciente "1" -- "*" Turno : solicita
+Turno "1" -- "1" Medico : asignado
+Medico "1" -- "1" Area : pertenece
+Medico "*" -- "*" Paciente : atiende
+
+
+@enduml

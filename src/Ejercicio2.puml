@@ -1,0 +1,47 @@
+@startuml
+
+class Cliente {
+
+- ci : String
+- nombre : String
+- direccion : String
+}
+
+class Detalle {
+
+- producto : String
+- cantidad : int
+
+}
+
+class Pedido {
+
++ agregarPrdocuto() : void
++ calcularTotal() : void
+}
+
+class Producto {
+
+- nombre : String
+- precio : double
+- codigo : String
+
+}
+
+Cliente "1" -- "*" Pedido : realiza
+Pedido "*" -- Detalle : tiene
+Detalle -- "*" Producto
+
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml
